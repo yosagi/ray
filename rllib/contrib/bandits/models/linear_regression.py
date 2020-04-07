@@ -84,8 +84,8 @@ class OnlineLinearRegression(nn.Module):
             "Input context tensor must be 2 or 3 dimensional, where the" \
             " first dimension is batch size"
         assert x.shape[
-            1] == self.d, f"Feature dimensions of weights ({self.d}) and " \
-                          f"context ({x.shape[1]}) do not match!"
+            1] == self.d, "Feature dimensions of weights ({}) and ".format(self.d) + \
+                          "context ({}) do not match!".format(x.shape[1])
         if y:
             assert torch.is_tensor(y) and y.numel() == 1,\
                 "Target should be a tensor;" \
@@ -133,8 +133,8 @@ class DiscreteLinearModel(TorchModelV2, nn.Module):
 
     def partial_fit(self, x, y, arm):
         assert 0 <= arm.item() < len(self.arms),\
-            f"Invalid arm: {arm.item()}." \
-            f"It should be 0 <= arm < {len(self.arms)}"
+            "Invalid arm: {}.".format(arm.item())+ \
+            "It should be 0 <= arm < {}".format(len(self.arms))
         self.arms[arm].partial_fit(x, y)
 
     @override(TorchModelV2)

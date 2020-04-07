@@ -210,7 +210,7 @@ if __name__ == "__main__":
         print("iter {}:".format(i), train_stats1)
 
     dt = (time.time() - training_start) / 3
-    print(f"Training on workers takes: {dt:.3f} seconds/epoch")
+    print("Training on workers takes: {dt:.3f} seconds/epoch".format(dt=dt))
 
     model = trainer.get_model()
     trainer.shutdown()
@@ -220,7 +220,7 @@ if __name__ == "__main__":
     training_start = time.time()
     model.fit(dataset, steps_per_epoch=num_train_steps, epochs=1)
     dt = (time.time() - training_start)
-    print(f"Training on workers takes: {dt:.3f} seconds/epoch")
+    print("Training on workers takes: {dt:.3f} seconds/epoch".format(dt=dt))
 
     scores = model.evaluate(test_dataset, steps=num_eval_steps)
     print("Test loss:", scores[0])

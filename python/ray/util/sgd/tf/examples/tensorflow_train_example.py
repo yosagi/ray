@@ -85,7 +85,7 @@ def train_example(num_replicas=1, batch_size=128, use_gpu=False):
     dloss = end_stats["validation_loss"] - start_stats["validation_loss"]
     dmse = (end_stats["validation_mean_squared_error"] -
             start_stats["validation_mean_squared_error"])
-    print(f"dLoss: {dloss}, dMSE: {dmse}")
+    print("dLoss: {dloss}, dMSE: {dmse}".format(dloss=dloss,dmse=dmse))
 
     if dloss > 0 or dmse > 0:
         print("training sanity check failed. loss increased!")

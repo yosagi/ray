@@ -14,22 +14,22 @@ serve.init(blocking=True)
 # it can be made to be invoked from web as well as python.
 @serve.route("/echo_v1")
 def echo_v1(_, response="hello from python!"):
-    return f"echo_v1({response})"
+    return "echo_v1({})".format(response)
 
 
 @serve.route("/echo_v2")
 def echo_v2(_, relay=""):
-    return f"echo_v2({relay})"
+    return "echo_v2({})".format(relay)
 
 
 @serve.route("/echo_v3")
 def echo_v3(_, relay=""):
-    return f"echo_v3({relay})"
+    return "echo_v3({})".format(relay)
 
 
 @serve.route("/echo_v4")
 def echo_v4(_, relay1="", relay2=""):
-    return f"echo_v4({relay1} , {relay2})"
+    return "echo_v4({} , {})".format(relay1,relay2)
 
 
 """

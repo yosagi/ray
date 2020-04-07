@@ -268,7 +268,7 @@ class TorchTrainer:
         return batch_size_per_worker
 
     def _start_workers(self, num_workers):
-        logger.debug(f"start_workers: Setting %d workers." % num_workers)
+        logger.debug("start_workers: Setting %d workers." % num_workers)
         worker_config = self.config.copy()
         batch_size_per_worker = self._configure_and_split_batch(num_workers)
         if batch_size_per_worker:
